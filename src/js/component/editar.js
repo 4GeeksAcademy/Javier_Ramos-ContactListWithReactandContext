@@ -1,7 +1,7 @@
 import React, { useState,useContext } from "react";
 import { Context } from "../store/appContext";
 
-export const Formulario = () =>{
+export const Editar = () =>{
     const { store, actions } = useContext(Context);
     const [dataForm,setDataForm]=useState({
         name: '',
@@ -15,15 +15,10 @@ export const Formulario = () =>{
         setDataForm({...dataForm, [name]: value})
     }
 
-    const handleSubmit = (e) =>{ 
+    const handleSubmit = (e) =>{
         e.preventDefault() //evita que se recargue la página
-        actions.createContact(dataForm)
-        setDataForm({
-            name: '',
-            email: '',
-            phone: '',
-            address: ''
-        }) 
+        actions.editContact(dataForm)
+         
         console.log(dataForm)
     }
 
@@ -42,7 +37,7 @@ export const Formulario = () =>{
                 <label>Address
                     <input className="form-control" name="address" value={dataForm.address} placeholder="Address" onChange={handleChange} type="text"></input>
                 </label>
-                <input className="btn btn-primary" value="enviar" type="submit"/>
+                <input className="btn btn-warning" value="editar" type="submit"/>
             </form>
         </div>
     )

@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
+
 
 export const Home = () => {
 	
@@ -17,8 +19,10 @@ export const Home = () => {
 					<h5><span className="fa fa-phone m3-4"></span> {el.phone}</h5>
 					<h5><span className="fa fa-location-dot"></span> {el.address}</h5>
 				</div>
-				<span className="fa-solid fa-pencil"></span>
-				<span className="fas fa-trash-alt" onClick={()=>deleteContact(el.id)}></span>
+				<Link to="/editarContacto">
+					<span className="fa-solid fa-pencil" onClick=""></span>
+				</Link>
+				<span className="fas fa-trash-alt" onClick={()=>actions.deleteContact(el.id)}></span>
 			</li>)}
 		</ul>
 		
