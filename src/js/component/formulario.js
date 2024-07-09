@@ -18,6 +18,12 @@ export const Formulario = () =>{
     const handleSubmit = (e) =>{
         e.preventDefault() //evita que se recargue la página
         actions.createContact(dataForm)
+        setDataForm({
+            name: '',
+            email: '',
+            phone: '',
+            address: ''
+        }) 
         console.log(dataForm)
     }
 

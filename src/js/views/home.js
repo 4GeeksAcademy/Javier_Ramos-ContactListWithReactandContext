@@ -18,7 +18,7 @@ export const Home = () => {
 					<h5><span className="fa fa-location-dot"></span> {el.address}</h5>
 				</div>
 				<span className="fa-solid fa-pencil"></span>
-				<span className="fas fa-trash-alt"></span>
+				<span className="fas fa-trash-alt" onClick={()=>deleteContact(el.id)}></span>
 			</li>)}
 		</ul>
 		
