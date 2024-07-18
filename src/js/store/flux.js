@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			contacts:null,
-			contact:{}
+			contact:null
 		},
 		actions: {
 			
@@ -74,10 +74,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			editContact: async (id) => {
 				const payload = {
-					"name": el.name,
-					"phone": el.phone,
-					"email": el.email,
-					"address": el.address
+					"name": contact.name,
+					"phone": contact.phone,
+					"email": contact.email,
+					"address": contact.address
 				  };
 				try {
 					await fetch('https://playground.4geeks.com/contact/agendas/Javier/contacts/'+id, {

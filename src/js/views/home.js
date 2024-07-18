@@ -20,7 +20,7 @@ export const Home = () => {
 					<h5><span className="fa fa-location-dot"></span> {el.address}</h5>
 				</div>
 				<Link to="/editarContacto">
-					<span className="fa-solid fa-pencil" onClick={actions.selectContact(el.id)}></span>
+					<span className="fa-solid fa-pencil" onClick={()=>actions.selectContact(el.id)}></span>
 				</Link>
 				<span className="fas fa-trash-alt" onClick={()=>actions.deleteContact(el.id)}></span>
 			</li>)}
