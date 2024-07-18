@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			contacts:null,
+			contact:{}
 		},
 		actions: {
 			
@@ -66,13 +67,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					alert("Error al borrar contacto")
 				}
 			}, 
+			
+			selectContact: (el) => {
+				setStore({contact:el})
+			},
 
 			editContact: async (id) => {
 				const payload = {
-					"name": dataForm.name,
-					"phone": dataForm.phone,
-					"email": dataForm.email,
-					"address": dataForm.address
+					"name": el.name,
+					"phone": el.phone,
+					"email": el.email,
+					"address": el.address
 				  };
 				try {
 					await fetch('https://playground.4geeks.com/contact/agendas/Javier/contacts/'+id, {
@@ -83,10 +88,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(payload)
 					})
 					getActions().getContacts()
-					alert("Usuario creado con éxito")
+					alert("Usuario editado con éxito")
 				} catch (error) {
 					console.log("error al crear contacto", error)
-					alert("Error al crear contacto")
+					alert("Error al editar contacto")
 				}
 			},
 		}
