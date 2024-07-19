@@ -10,7 +10,7 @@ export const Home = () => {
 	
 	return(
 		<ul className="w-50 mx-auto">
-			{store.contacts?.map(el => 
+			{store.contacts?.map((el) => (
 			<li className=" my-3 d-flex justify-content-between border border-primary p-2" key={el.id}>
 				<div className="photo-container text-center">photo</div>
 				<div>
@@ -20,10 +20,10 @@ export const Home = () => {
 					<h5><span className="fa fa-location-dot"></span> {el.address}</h5>
 				</div>
 				<Link to="/editarContacto">
-					<span className="fa-solid fa-pencil" onClick={()=>actions.selectContact(el.id)}></span>
+					<span className="fa-solid fa-pencil" onClick={()=>actions.selectContact(el)}></span>
 				</Link>
 				<span className="fas fa-trash-alt" onClick={()=>actions.deleteContact(el.id)}></span>
-			</li>)}
+			</li>))}
 		</ul>
 		
 )};

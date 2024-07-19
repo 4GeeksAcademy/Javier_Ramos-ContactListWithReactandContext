@@ -72,15 +72,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({contact:el})
 			},
 
-			editContact: async (id) => {
+			editContact: async (id,dataForm) => {
 				const payload = {
-					"name": contact.name,
-					"phone": contact.phone,
-					"email": contact.email,
-					"address": contact.address
+					"name": dataForm.name,
+					"phone": dataForm.phone,
+					"email": dataForm.email,
+					"address": dataForm.address
 				  };
 				try {
-					await fetch('https://playground.4geeks.com/contact/agendas/Javier/contacts/'+id, {
+					await fetch(`https://playground.4geeks.com/contact/agendas/Javier/contacts/${id}`, {
 						method: 'PUT',
 						headers: {
 							'Content-Type': 'application/json'
@@ -91,7 +91,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					alert("Usuario editado con éxito")
 				} catch (error) {
 					console.log("error al crear contacto", error)
-					alert("Error al editar contacto")
+					alert("Error al editar contacto")  
 				}
 			},
 		}
